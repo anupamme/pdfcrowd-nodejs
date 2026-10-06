@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Unreleased
+----------
+
+- FIX: convertUrl() methods now validate the supplied URL using structured parsing (protocol and hostname) instead of a plain regex, and reject obviously local/private destinations (localhost, loopback, RFC1918, and link-local IPv4/IPv6 addresses) as client-side defense-in-depth before forwarding the URL to the Pdfcrowd API. Hostname-based SSRF enforcement (DNS resolution) remains the API server's responsibility.
+
 6.7.1
 -----
 
