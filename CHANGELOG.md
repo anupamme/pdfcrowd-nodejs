@@ -1,6 +1,17 @@
 Change Log
 ==========
 
+6.7.1
+-----
+
+- FIX: preserve non-ASCII filenames when uploading input files and attachments
+- FIX: clear inherited conversion inputs from each request while preserving conversion settings, auxiliary files, and in-flight requests
+- FIX: preserve binary input stream bytes, including encoded streams without readableEncoding, and report read failures and premature closure before sending a conversion request
+- FIX: report native I/O failures with consistent string messages and retain their causes in file-helper errors
+- FIX: invoke file-helper callbacks once, after destination closure, and report response, write, and close failures without a later success callback
+- FIX: allow sequential reuse of saveToFile callback objects and notify custom error handlers of destination failures after cleanup
+- FIX: isolate each conversion's inputs, request settings, retries, and completion state so client reuse and later configuration changes do not alter an in-flight conversion
+
 6.7.0
 -----
 
